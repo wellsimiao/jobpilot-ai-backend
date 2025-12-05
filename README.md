@@ -2,6 +2,10 @@
 
 Backend do JobPilot AI, uma plataforma para gerenciamento de usuários, autenticação e vagas de emprego. Construído com **FastAPI**, **MongoDB** e autenticação via **JWT**.
 
+---# 🚀 JobPilot AI - Backend
+
+Backend do **JobPilot AI**, plataforma para gerenciamento de usuários, autenticação e vagas de emprego, desenvolvido com **FastAPI**, **MongoDB** e **JWT**.
+
 ---
 
 ## 🛠 Tecnologias
@@ -11,104 +15,75 @@ Backend do JobPilot AI, uma plataforma para gerenciamento de usuários, autentic
 - Motor (MongoDB Async Driver)
 - Pydantic Settings
 - JWT (PyJWT)
-- Uvicorn (ASGI server)
+- Uvicorn
 - MongoDB
 
 ---
 
-## 🚀 Estrutura do Projeto
+## ⚙️ Configuração
 
-backend/
-├─ app/
-│ ├─ api/
-│ │ └─ v1/
-│ │ ├─ routes/
-│ │ │ ├─ auth.py
-│ │ │ ├─ users.py
-│ │ │ └─ jobs.py
-│ ├─ core/
-│ │ ├─ config.py
-│ │ └─ database.py
-│ ├─ models/
-│ ├─ repositories/
-│ └─ services/
-├─ venv/
-├─ .env
-└─ main.py
-
-
----
-
-## ⚙️ Configuração do Ambiente
-
-1. **Clone o repositório**
+1. Clone o repositório:
 
 ```bash
 git clone <URL_DO_REPOSITORIO>
 cd backend
-
-
-Crie e ative o ambiente virtual
 
 python -m venv venv
 # Windows
 venv\Scripts\activate
 # Linux/Mac
 source venv/bin/activate
-
-
-Instale as dependências
-
 pip install -r requirements.txt
-
-
-Crie o arquivo .env na raiz do backend
-
-# MongoDB
 DATABASE_URL=mongodb://jobpilot_user:SenhaForte123@localhost:27017/jobpilot_db
-
-# JWT
 JWT_SECRET=MinhaPalavraSecretaMuitoForte!2025
 JWT_ALGORITHM=HS256
 
-
-Lembre-se de criar o usuário no MongoDB com permissões readWrite para o banco jobpilot_db.
-
-🚀 Executando o servidor
+🏃‍♂️ Executando
 uvicorn app.main:app --reload
+Acesse: http://127.0.0.1:8000
 
+📦 Endpoints Principais
+Autenticação
 
-O backend estará disponível em: http://127.0.0.1:8000
+POST /auth/login → Login do usuário
 
-📦 Endpoints
+POST /auth/refresh → Atualizar token JWT
 
-/auth → autenticação (login, refresh token)
+Usuários
 
-/users → CRUD de usuários
+GET /users → Listar usuários
 
-/jobs → CRUD de vagas
+POST /users → Criar usuário
 
-Todos os endpoints protegidos com JWT onde necessário.
+GET /users/{id} → Obter usuário
 
-🔑 Segurança
+PUT /users/{id} → Atualizar usuário
 
-O JWT_SECRET deve ser forte e secreta.
+DELETE /users/{id} → Deletar usuário
 
-Nunca versionar o .env no GitHub.
+Vagas
 
-Use sempre HTTPS em produção.
+GET /jobs → Listar vagas
 
-💡 Dicas
+POST /jobs → Criar vaga
 
-Teste a conexão com o MongoDB usando o MongoDB Compass ou mongosh.
+GET /jobs/{id} → Obter vaga
 
-Reinicie o servidor sempre que atualizar o .env.
+PUT /jobs/{id} → Atualizar vaga
 
-Consulte a documentação oficial do FastAPI para extensões e melhorias.
+DELETE /jobs/{id} → Deletar vaga
+
+🔗 Exemplos de Requests
+cURL - Login
+curl -X POST http://127.0.0.1:8000/auth/login \
+-H "Content-Type: application/json" \
+-d '{"email": "usuario@teste.com", "password": "123456"}'
+
 
 📜 Licença
 
 MIT License
+
 
 
 
