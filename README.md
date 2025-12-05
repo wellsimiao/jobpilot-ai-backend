@@ -52,25 +52,17 @@ POST /auth/refresh → Atualizar token JWT
 Usuários
 
 GET /users → Listar usuários
-
 POST /users → Criar usuário
-
 GET /users/{id} → Obter usuário
-
 PUT /users/{id} → Atualizar usuário
-
 DELETE /users/{id} → Deletar usuário
 
 Vagas
 
 GET /jobs → Listar vagas
-
 POST /jobs → Criar vaga
-
 GET /jobs/{id} → Obter vaga
-
 PUT /jobs/{id} → Atualizar vaga
-
 DELETE /jobs/{id} → Deletar vaga
 
 🔗 Exemplos de Requests
@@ -83,6 +75,7 @@ curl -X POST http://127.0.0.1:8000/auth/login \
 📜 Licença
 
 MIT License
+
 
 
 
